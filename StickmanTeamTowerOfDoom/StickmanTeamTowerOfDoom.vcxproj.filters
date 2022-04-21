@@ -13,6 +13,12 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\Actor">
+      <UniqueIdentifier>{e688f6b7-cd02-4756-9fdf-8c3ca5023b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Actor\Enemy">
+      <UniqueIdentifier>{8f52a134-fec5-4029-9b8b-10b530368cc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,11 +57,17 @@
     <ClCompile Include="Core.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Actor\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,11 +104,17 @@
     <ClInclude Include="Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Source Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Source Files\Actor\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

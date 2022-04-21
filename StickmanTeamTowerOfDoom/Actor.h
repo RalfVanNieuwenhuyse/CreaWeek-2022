@@ -10,7 +10,7 @@ public:
 		player
 	};
 
-	Actor( actorType actorType );
+	Actor( actorType actorType,const float& maxSpeed);
 
 	virtual ~Actor();
 	Actor(const Actor& other) = delete;
@@ -28,6 +28,8 @@ public:
 protected:
 	Vector2f m_Velocity;
 	Rectf m_ActorRect;
+
+	const float m_MaxSpeed;
 
 	int m_Health;
 	int m_MaxHealth;

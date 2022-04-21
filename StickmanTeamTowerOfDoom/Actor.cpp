@@ -2,12 +2,13 @@
 #include "Actor.h"
 #include "utils.h"
 
-Actor::Actor(actorType actorType)
+Actor::Actor(actorType actorType, const float& maxSpeed)
 	: m_Velocity{}
 	, m_ActorRect{}
 	, m_Health{}
 	, m_MaxHealth{}
 	, m_ActorType{ actorType }
+	, m_MaxSpeed{ maxSpeed }
 {
 
 }

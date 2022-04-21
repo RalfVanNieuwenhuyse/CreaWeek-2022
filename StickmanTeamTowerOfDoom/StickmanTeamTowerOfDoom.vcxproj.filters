@@ -57,9 +57,6 @@
     <ClCompile Include="Vector2f.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -120,6 +117,9 @@
     <ClCompile Include="Undead.cpp">
       <Filter>Source Files\actor\enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -152,8 +152,13 @@
     <ClInclude Include="Vector2f.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="Game.h">
       <Filter>Source Files</Filter>
+=======
+    <ClInclude Include="Actor.h">
+      <Filter>Header Files</Filter>
+>>>>>>> Stashed changes
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Source Files</Filter>
@@ -209,8 +214,13 @@
     <ClInclude Include="Boomerang.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="Bullet.h">
       <Filter>Source Files\Projectille</Filter>
+=======
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+>>>>>>> Stashed changes
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -23,7 +23,6 @@ void Timer::Update(float elapsedSec)
 void Timer::setTimeGoal(float seconds)
 {
 	m_TimeGoal = seconds;
-	resetTimer();
 }
 
 void Timer::resetTimer()

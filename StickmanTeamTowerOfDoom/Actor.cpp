@@ -8,6 +8,7 @@ Actor::Actor(actorType actorType, const float& maxSpeed)
 	, m_MaxHealth{}
 	, m_ActorType{ actorType }
 	, m_MaxSpeed{ maxSpeed }
+	, m_HasTakenDamage{ false }
 {
 
 }
@@ -51,8 +52,8 @@ Actor::actorType Actor::getActorType() const
 void Actor::takeDamage(int amount)
 {
 	m_Health -= amount;
+	m_HasTakenDamage = true;
 }
-
 void Actor::giveHealth(int amount)
 {
 	while (m_Health < m_MaxHealth || amount > 0)

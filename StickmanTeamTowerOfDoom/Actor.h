@@ -38,6 +38,8 @@ protected:
 	int m_Health;
 	int m_MaxHealth;
 
+	bool m_HasTakenDamage;
+
 private:
 	actorType m_ActorType;
 

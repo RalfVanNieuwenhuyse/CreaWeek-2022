@@ -42,6 +42,7 @@ protected:
 
 	bool isActorOverlapping( Actor* player );
 
+	bool m_IslookingLeft;
 	Rectf m_RangeRect;
 	Actor* m_pPlayer;
 

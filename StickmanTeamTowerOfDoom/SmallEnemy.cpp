@@ -3,9 +3,11 @@
 #include "utils.h"
 
 SmallEnemy::SmallEnemy(Point2f pos)
-	: Enemy(TypeOfEnemy::smallEnemy)
+	: Enemy{ TypeOfEnemy::smallEnemy }
 	, m_Action{ actionState::idle }
 	, m_Attack{ attacks::none }
+	, m_pPlayer{ nullptr }
+	, m_IslookingLeft{ true }
 {
 	//Fill in actor info
 	m_MaxHealth = 3;
@@ -58,11 +60,13 @@ void SmallEnemy::movement()
 	{
 		//move to left
 		m_Velocity.x = m_MaxSpeed * -1;
+		m_IslookingLeft = true;
 	}
 	else if (m_pPlayer->getRect().left - offset > m_ActorRect.left)
 	{
 		//move right
 		m_Velocity.x = m_MaxSpeed;
+		m_IslookingLeft = false;
 	}
 
 	if (m_pPlayer->getRect().bottom + offset < m_ActorRect.bottom)
@@ -100,12 +104,19 @@ void SmallEnemy::changeAttack()
 }
 bool SmallEnemy::isActorOverlapping(Actor* player)
 {
-	return utils::IsOverlapping(player->getRect(), m_ActorRect);
+	if (m_IslookingLeft)
+	{
+		m_RangeRect.left = m_ActorRect.left + m_RangeRect.width;
+	}
+	else
+	{
+		m_RangeRect.left = m_ActorRect.left - m_ActorRect.width;
+	}
+	return utils::IsOverlapping(player->getRect(), m_RangeRect);
 }
 void SmallEnemy::IsInRange(Actor* player)
 {
 	m_pPlayer = player;
-
 	if (isActorOverlapping(player))
 	{
 		changeAttack();

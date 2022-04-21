@@ -19,11 +19,6 @@ void Enemy::Update(float elapsedSec)
 {
 }
 
-bool Enemy::isDead()
-{
-	return false;
-}
-
 void Enemy::Movement(float elapsedSec)
 {
 }

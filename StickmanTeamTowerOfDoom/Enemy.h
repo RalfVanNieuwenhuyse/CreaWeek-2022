@@ -9,7 +9,8 @@ public:
 
 	enum class TypeOfEnemy
 	{
-		smallEnemy,
+		Undead,
+		Knight,
 		Boss
 	};
 
@@ -20,7 +21,6 @@ public:
 
 	virtual void Draw()const override;
 	virtual void Update(float elapsedSec) override;
-	virtual bool isDead();
 
 
 protected:

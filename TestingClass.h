@@ -9,4 +9,8 @@ class TestingClass
 	{
 
 	}
+	void JonasTest()
+	{
+
+	}
 };

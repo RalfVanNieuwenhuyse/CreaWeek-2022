@@ -16,9 +16,11 @@ Player::Player()
 	, m_Attack{Player::Attacks::none}
 	, m_MaxAnimationsTime{1.f}
 	, m_AnimationTime{0.f}
+	
 {
 	m_Health = 6;
 	m_MaxHealth = 6;
+	Initialize();
 }
 
 void Player::Initialize()
@@ -26,6 +28,10 @@ void Player::Initialize()
 	m_AttacksHitBoxArr[int(Player::Attacks::light_Attack)-1]=Rectf{0.f,0.f,6.f,1.f};
 	m_AttacksHitBoxArr[int(Player::Attacks::knok_up) - 1] = Rectf{ 0.f,0.f,5.f,4.f };
 	m_AttacksHitBoxArr[int(Player::Attacks::heavy_fist) - 1] = Rectf{ 0.f,0.f,7.f,5.f };
+
+	m_Attackdamage[int (Player::Attacks::light_Attack) - 1] = 1;
+	m_Attackdamage[int (Player::Attacks::knok_up) - 1] = 2;
+	m_Attackdamage[int (Player::Attacks::heavy_fist) - 1] = 4;
 }
 
 void Player::Draw() const
@@ -89,12 +95,17 @@ void Player::HandleMovment(float elapsedSec)
 		m_Velocity.y += m_MaxSpeed;
 	}
 
+	HandleDogeRoll(pStates,elapsedSec);	
+
+
 	m_ActorRect.left += m_Velocity.x * elapsedSec;
 	m_ActorRect.bottom += m_Velocity.y * elapsedSec;
 
 	m_Velocity.x = 0;
 	m_Velocity.y = 0;
 }
+
+
 
 void Player::ProcessKeyDownEvent(const SDL_KeyboardEvent& e, float elapsedSec)
 {	
@@ -171,3 +182,36 @@ bool Player::HitEnemy(const Rectf& shapeEnemy)
 	return false;
 }
 
+void Player::HandleDogeRoll(const Uint8* pStates, float elapsedSec)
+{
+	if (pStates[SDL_SCANCODE_W] && pStates[SDL_SCANCODE_O] && m_InvincibleTime < 0)
+	{
+		m_Velocity.y += m_MaxSpeed * 2;
+		m_IsInvincible = true;
+	}
+	if (pStates[SDL_SCANCODE_A] && pStates[SDL_SCANCODE_O] && m_InvincibleTime < 0 && !m_IsInvincible)
+	{
+		m_Velocity.y -= m_MaxSpeed * 2;
+		m_IsInvincible = true;
+	}
+	if (pStates[SDL_SCANCODE_S] && pStates[SDL_SCANCODE_O] && m_InvincibleTime < 0 && !m_IsInvincible)
+	{
+		m_Velocity.y -= m_MaxSpeed * 2;
+		m_IsInvincible = true;
+	}
+	if (pStates[SDL_SCANCODE_D] && pStates[SDL_SCANCODE_O] && m_InvincibleTime < 0 && !m_IsInvincible)
+	{
+		m_Velocity.y += m_MaxSpeed * 2;
+		m_IsInvincible = true;
+	}
+
+	if (m_IsInvincible)
+	{
+		m_InvincibleTime += elapsedSec;
+	}
+	if (m_InvincibleTime >= m_MaxInvincibleTime)
+	{
+		m_IsInvincible = false;
+		m_InvincibleTime = 0;
+	}
+}

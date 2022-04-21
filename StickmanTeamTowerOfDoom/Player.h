@@ -35,14 +35,18 @@ public:
 
 private:
 	//Membervariabels
+	
+		//Doge roll
 	bool m_IsInvincible;
 	const float m_MaxInvincibleTime;
 	float m_InvincibleTime;
-		
+
+		//Energy 
 	float m_Energy;
 	const int m_MaxEnergy;
 	const float m_EnergyRegen;
 
+		// Attacks
 	const float m_MaxHoldTime;
 	const float m_MinChargTime;
 	float m_ChargedTime;
@@ -50,7 +54,10 @@ private:
 	Attacks m_Attack;
 
 	static const int m_NrAttackHitBoxes{ 3 };
+	int m_Attackdamage[m_NrAttackHitBoxes];
 	Rectf m_AttacksHitBoxArr[m_NrAttackHitBoxes];
+
+
 
 		//Sprites & animations
 	const float m_MaxAnimationsTime;
@@ -58,5 +65,7 @@ private:
 
 	//functions
 	void HandleMovment(float elapsedSec);
+	void HandleDogeRoll(const Uint8* pStates, float elapsedSec);
+	
 };
 

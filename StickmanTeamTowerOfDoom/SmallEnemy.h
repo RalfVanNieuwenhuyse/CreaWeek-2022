@@ -12,14 +12,17 @@ public:
 	SmallEnemy(SmallEnemy&& other) = delete;
 	SmallEnemy& operator=(SmallEnemy&& other) = delete;
 
-	void IsInRange( const Actor* player );
+	void IsInRange( Actor* player );
 
 	virtual void Update(float elapsedSec) override;
+	bool isReflecting() const;
 
 protected:
 	void movement();
 	void changeActionState();
-	void doAttack();
+	void changeAttack();
+
+	virtual void doAttack();
 
 	enum class actionState
 	{
@@ -37,9 +40,10 @@ protected:
 	actionState m_Action;
 	attacks m_Attack;
 
-	bool isActorOverlapping( const Actor* player );
+	bool isActorOverlapping( Actor* player );
 
 	Rectf m_RangeRect;
+	Actor* m_pPlayer;
 
 private:
 	

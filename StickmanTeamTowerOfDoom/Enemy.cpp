@@ -3,8 +3,8 @@
 #include "Actor.h"
 
 Enemy::Enemy(TypeOfEnemy enemyType)
-	:Actor::Actor(actorType::enemy)
-	,m_EnemyType{ enemyType }
+	: Actor(actorType::enemy, 250.f)
+	, m_EnemyType{ enemyType }
 {
 
 }

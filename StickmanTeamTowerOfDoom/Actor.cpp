@@ -66,8 +66,8 @@ void Actor::giveHealth(int amount)
 OAMEntry Actor::sendOAM()
 {
 	//int posX, int posY, int tileID, bool flipX, bool flipY
-	int posX{ m_ActorRect.left };
-	int posY{ m_ActorRect.bottom };
+	int posX{ (int) m_ActorRect.left };
+	int posY{ (int)m_ActorRect.bottom };
 	int TileID{ 0 };
 	bool flipX{ false };
 	bool flipY{ false };

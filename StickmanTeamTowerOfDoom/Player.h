@@ -32,6 +32,8 @@ public:
 	void ProcessKeyDownEvent(const SDL_KeyboardEvent& e, float elapsedSec);
 	void ProcessKeyUpEvent(const SDL_KeyboardEvent& e);
 
+	OAMEntry sendOAM() override;
+
 
 private:
 	//Membervariabels
@@ -62,6 +64,7 @@ private:
 		//Sprites & animations
 	const float m_MaxAnimationsTime;
 	float m_AnimationTime;
+	bool m_IsIdle;
 
 	//functions
 	void HandleMovment(float elapsedSec);

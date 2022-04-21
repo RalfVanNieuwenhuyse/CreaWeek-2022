@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <iostream>
 
+
 Player::Player()
 	:Actor{ Actor::actorType::player,200.f }
 	, m_IsInvincible{ false }
@@ -16,6 +17,7 @@ Player::Player()
 	, m_Attack{Player::Attacks::none}
 	, m_MaxAnimationsTime{1.f}
 	, m_AnimationTime{0.f}
+	, m_IsIdle{true}
 	
 {
 	m_Health = 6;
@@ -81,22 +83,31 @@ void Player::HandleMovment(float elapsedSec)
 	if ( pStates[SDL_SCANCODE_W] )
 	{
 		m_Velocity.y += m_MaxSpeed;
+		m_IsIdle = false;
 	}
 	if ( pStates[SDL_SCANCODE_A] )
 	{
 		m_Velocity.y -= m_MaxSpeed;
+		m_IsIdle = false;
 	}
 	if (pStates[SDL_SCANCODE_S])
 	{
 		m_Velocity.y -= m_MaxSpeed;
+		m_IsIdle = false;
 	}
 	if (pStates[SDL_SCANCODE_D])
 	{
 		m_Velocity.y += m_MaxSpeed;
+		m_IsIdle = false;
 	}
 
 	HandleDogeRoll(pStates,elapsedSec);	
 
+	if (m_Velocity.x <= 5.f || m_Velocity.y <= 5.f)
+	{
+		m_IsIdle = true;
+	}
+	
 
 	m_ActorRect.left += m_Velocity.x * elapsedSec;
 	m_ActorRect.bottom += m_Velocity.y * elapsedSec;
@@ -214,4 +225,17 @@ void Player::HandleDogeRoll(const Uint8* pStates, float elapsedSec)
 		m_IsInvincible = false;
 		m_InvincibleTime = 0;
 	}
+}
+
+OAMEntry Player::sendOAM()
+{
+	int posX{ (int)m_ActorRect.left };
+	int posY{ (int)m_ActorRect.bottom };
+	int TileID{ 0 };
+	bool flipX{ false };
+	bool flipY{ false };
+
+	OAMEntry entry = OAMEntry{ posX, posY, TileID, flipX, flipY };
+
+	return entry;
 }

@@ -4,24 +4,35 @@
 class Actor
 {
 public:
-	Actor();
+	enum class actorType
+	{
+		enemy,
+		player
+	};
+
+	Actor( actorType actorType );
+
 	virtual ~Actor();
 	Actor(const Actor& other) = delete;
 	Actor& operator=(const Actor& other) = delete;
 	Actor(Actor&& other) = delete;
-
-
+	Actor& operator=(Actor&& other) = delete;
 
 	virtual void Draw() const;
 	virtual void Update(float elapsedSec);
+
+	virtual bool isDead() const;
+	virtual Rectf getRect() const;
+	actorType getActorType() const;
 
 protected:
 	Vector2f m_Velocity;
 	Rectf m_ActorRect;
 
-	float m_Health;
+	int m_Health;
 
 private:
+	actorType m_ActorType;
 
 
 

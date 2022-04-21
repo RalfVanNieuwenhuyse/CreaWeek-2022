@@ -48,6 +48,19 @@ void ProjectileManager::Update(float elapsedSec)
 	}
 }
 
+bool ProjectileManager::IsOverlappingWithAProjectile(const Rectf& other, Projectile& returnProjectile)
+{
+	for (size_t i{ 0 }; i < m_Projectiles.size(); ++i)
+	{
+		if (m_Projectiles[i]->IsOverlapping(other))
+		{
+			returnProjectile = *m_Projectiles[i];
+			return true;
+		}
+	}
+	return false;
+}
+
 Projectile* ProjectileManager::GiveBoomerang()
 {
 	for (size_t i{ 0 }; i < m_Projectiles.size(); ++i)

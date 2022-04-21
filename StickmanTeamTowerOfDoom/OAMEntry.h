@@ -2,6 +2,7 @@
 class OAMEntry final
 {
 public:
+	OAMEntry();
 	OAMEntry(int posX, int posY, int tileID, bool flipX = false, bool flipY = false);
 	void SetPosition(int posX, int posY);
 	void AddPosition(int posX, int posY);
@@ -10,10 +11,10 @@ public:
 	void FlipX(bool flip);
 	void FlipY(bool flip);
 
-	bool GetFlipX();
-	bool GetFlipY();
+	bool GetFlipX() const;
+	bool GetFlipY() const;
 
-	int GetTileId();
+	int GetTileId() const;
 private:
 	int m_PosX;
 	int m_PosY;

@@ -1,8 +1,7 @@
 #pragma once
 #include "Grid.h"
-#include "OAMTable.h"
 #include "Tile.h"
-
+#include "OAMEntry.h"
 class Level
 {
 public:
@@ -14,17 +13,17 @@ public:
 	Level& operator=(Level&& rhs) = delete;
 
 	virtual void Update(float elapsedSec) = 0;
-	void Draw(unsigned char sprite[256][16], unsigned char backGround[256][16], 
-		OAMEntry oam[40], unsigned char grid[1024], unsigned char x, unsigned char y) const;
+	virtual void Draw() const = 0;
+	void Render(const unsigned char sprite[256][16], const unsigned char backGround[256][16], 
+		const OAMEntry oam[40], const unsigned char grid[1024], const unsigned char x, const unsigned char y) const;
 	virtual bool HasReachedEnd() = 0;
 
-
-private:
-
-	//Grid m_Grid;
-	OAMTable* m_Table;
-	Tile* m_BackgroundTiles[256];
-	Tile* m_SpriteTiles[256];
-	int* m_Indexes[256];
+protected:
+	unsigned char m_Sprites[256][16];
+	unsigned char m_BackGround[256][16];
+	OAMEntry m_OAM[40];
+	unsigned char m_Grid[1024];
+	unsigned char m_X;
+	unsigned char m_Y;
 };
 

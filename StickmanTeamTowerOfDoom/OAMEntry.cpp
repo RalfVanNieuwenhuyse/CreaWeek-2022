@@ -1,6 +1,13 @@
 #include "pch.h"
 #include "OAMEntry.h"
 
+
+OAMEntry::OAMEntry()
+	:OAMEntry(0, 0, 0)
+{
+
+}
+
 OAMEntry::OAMEntry(int posX, int posY, int tileID, bool flipX, bool flipY)
 	:m_PosX{posX}
 	,m_PosY{posY}
@@ -37,17 +44,17 @@ void OAMEntry::FlipY(bool flip)
 	m_FlipY = flip;
 }
 
-bool OAMEntry::GetFlipX()
+bool OAMEntry::GetFlipX() const
 {
 	return m_FlipX;
 }
 
-bool OAMEntry::GetFlipY()
+bool OAMEntry::GetFlipY() const
 {
 	return m_FlipY;
 }
 
-int OAMEntry::GetTileId()
+int OAMEntry::GetTileId() const
 {
 	return m_TileId;
 }

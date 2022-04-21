@@ -13,6 +13,7 @@ public:
 		RUNNING
 	};
 	LevelManager();
+	~LevelManager();
 	LevelManager(const LevelManager& c) = delete;
 	LevelManager& operator=(const LevelManager& rhs) = delete;
 	LevelManager(LevelManager&& c) = delete;

@@ -13,6 +13,8 @@ public:
 
 	void PushBack(Projectile* projectile);
 	void Update(float elapsedSec);
+
+	bool IsOverlappingWithAProjectile(const Rectf& other, Projectile& returnProjectile);
 	
 	// Returns nullptr if none is found or if it is not done flying around
 	Projectile* GiveBoomerang();

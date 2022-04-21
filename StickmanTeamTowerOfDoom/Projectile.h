@@ -11,7 +11,7 @@ public:
 
 	explicit Projectile(Type type = Type::bullet, const Point2f& pos = {}, int damage = 2);
 	Projectile(Projectile& p) = delete;
-	Projectile& operator=(Projectile& p) = delete;
+	Projectile& operator=(Projectile& p);
 	Projectile(Projectile&& p) = delete;
 	Projectile& operator=(Projectile&& p) = delete;
 	virtual ~Projectile();

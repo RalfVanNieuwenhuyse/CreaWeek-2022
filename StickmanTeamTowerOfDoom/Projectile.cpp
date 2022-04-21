@@ -13,6 +13,19 @@ Projectile::Projectile(Type type, const Point2f& pos, int damage)
 	m_TimeAlive.setTimeGoal(16.f);
 }
 
+Projectile& Projectile::operator=(Projectile& p)
+{
+	m_Type = p.m_Type;
+	m_TimeAlive = p.m_TimeAlive;
+	m_Rect = p.m_Rect;
+
+	m_Velocity = p.m_Velocity;
+
+	m_Damage = p.m_Damage;
+
+	return *this;
+}
+
 Projectile::~Projectile()
 {
 }

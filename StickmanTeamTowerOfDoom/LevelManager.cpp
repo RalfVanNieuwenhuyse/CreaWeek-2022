@@ -12,6 +12,15 @@ LevelManager::LevelManager()
 
 }
 
+LevelManager::~LevelManager()
+{
+	for (int i{}; i < m_pLevels.size(); ++i)
+	{
+		delete m_pLevels[i];
+	}
+	m_pLevels.clear();
+}
+
 void LevelManager::AddLevel(Level* level)
 {
 	m_pLevels.push_back(level);
@@ -64,5 +73,5 @@ void LevelManager::Draw() const
 		
 		break;
 	}
-	//m_pLevels[m_CurrentLevel]->Draw();
+	m_pLevels[m_CurrentLevel]->Draw();
 }

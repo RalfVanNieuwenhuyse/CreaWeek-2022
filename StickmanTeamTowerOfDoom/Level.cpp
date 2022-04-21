@@ -11,14 +11,17 @@ const Color4f m_LightGreen{ 139.f / m_Divide,172.f / m_Divide,15.f / m_Divide,1.
 const Color4f m_LightestGreen{ 155.f / m_Divide,188.f / m_Divide,15.f / m_Divide,1.f };
 
 Level::Level()
+: m_X{ }
+, m_Y{ }
+, m_BackGround{}
+, m_OAM{}
+, m_Sprites{}
+, m_Grid{}
 {
-	//Put all the indexes in the m_Indexes array
-	//Put all the tiles in m_Tiles
-	//m_Grid = new Grid{ m_Indexes,m_BackgroundTiles };
 }
 
 
-void DrawSprite(OAMEntry entry, unsigned char x, unsigned char y, unsigned char sprites[256][16])
+void DrawSprite(const OAMEntry entry,const unsigned char x, const unsigned char y, const unsigned char sprites[256][16])
 {
 	glPushMatrix();
 	{
@@ -96,7 +99,7 @@ void DrawSprite(OAMEntry entry, unsigned char x, unsigned char y, unsigned char 
 	glPopMatrix();
 }
 
-void DrawTile(unsigned char tiles[256][16], unsigned char index)
+void DrawTile(const unsigned char tiles[256][16], const unsigned char index)
 {
 	Point2f leftBottom{ 0.f,float(4 * 8) };
 
@@ -164,8 +167,8 @@ void DrawTile(unsigned char tiles[256][16], unsigned char index)
 	}
 }
 
-void Level::Draw(unsigned char sprites[256][16], unsigned char backGround[256][16],
-	OAMEntry oam[40], unsigned char grid[1024], unsigned char x, unsigned char y) const
+void Level::Render(const unsigned char sprites[256][16], const unsigned char backGround[256][16],
+	const OAMEntry oam[40], const unsigned char grid[1024], const unsigned char x, const unsigned char y) const
 {
 	//Draw background
 	Point2f startPos{ 0,32 * 8 };
@@ -175,7 +178,7 @@ void Level::Draw(unsigned char sprites[256][16], unsigned char backGround[256][1
 		for (int cols = 0; cols < 32; cols++)
 		{
 			idx = rows * 32 + cols;
-			DrawTile(backGround, idx);
+			DrawTile(backGround, grid[idx]);
 			startPos.x += 32.0f;
 		}
 		startPos.x = 0;

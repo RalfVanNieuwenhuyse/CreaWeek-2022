@@ -131,24 +131,23 @@ void DrawTile(unsigned char tiles[256][16], unsigned char index)
 
 			if (bit[i] > 0 && bit2[i] > 0)
 			{
-				colors[i] = m_DarkestGreen;
 				//zwart
+				colors[i] = m_DarkestGreen;
 			}
 			else if (bit[i] > 0 && bit2[i] == 0)
 			{
-				colors[i] = m_DarkGreen;
 				//donker grijs
+				colors[i] = m_DarkGreen;
 			}
 			else if (bit[i] == 0 && bit2[i] > 0)
 			{
 				//licht grijs
 				colors[i] = m_LightGreen;
-
 			}
 			else
 			{
-				colors[i] = Color4f{ 0.0f,0.0f,0.0f,0.0f };
 				//wit
+				colors[i] = Color4f{ 0.0f,0.0f,0.0f,0.0f };
 			}
 		}
 

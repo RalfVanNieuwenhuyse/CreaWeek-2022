@@ -27,6 +27,7 @@ public:
 	actorType getActorType() const;
 
 	void takeDamage(int amount);
+	void giveHealth(int amount);
 
 protected:
 	Vector2f m_Velocity;

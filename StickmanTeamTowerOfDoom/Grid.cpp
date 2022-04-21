@@ -2,10 +2,10 @@
 #include "Grid.h"
 
 Grid::Grid(int* indexes, Tile* tiles):
-	m_pArray{indexes},
-	m_pTiles{tiles},
-	m_Size{32*32},
-	m_TileSize{256}
+	m_pArray{ indexes },
+	m_pTiles{ tiles },
+	m_Size{ 32*32 },
+	m_TileSize{ 256 }
 {
 }
 

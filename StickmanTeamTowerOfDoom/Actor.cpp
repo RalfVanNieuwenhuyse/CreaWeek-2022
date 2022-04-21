@@ -20,7 +20,7 @@ Actor::~Actor()
 void Actor::Draw() const
 {
 	//Draw actor
-	utils::SetColor(Color4f{ 1, 0, 0, 1 });
+	utils::SetColor( Color4f{ 1, 0, 0, 1 } );
 	utils::FillRect(m_ActorRect);
 }
 
@@ -51,4 +51,13 @@ Actor::actorType Actor::getActorType() const
 void Actor::takeDamage(int amount)
 {
 	m_Health -= amount;
+}
+
+void Actor::giveHealth(int amount)
+{
+	while (m_Health < m_MaxHealth || amount > 0)
+	{
+		++m_Health;
+		--amount;
+	}
 }

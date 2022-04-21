@@ -1,8 +1,12 @@
 #include "pch.h"
 #include "Game.h"
+#include "LevelManager.h"
+#include "TestLevel.h"
+#include "TowerOfStickman.h"
 
 Game::Game( const Window& window ) 
 	:m_Window{ window }
+	, m_pLevelManager{ new LevelManager() }
 {
 	Initialize( );
 }
@@ -14,11 +18,14 @@ Game::~Game( )
 
 void Game::Initialize( )
 {
-	
+	//Add level here
+	m_pLevelManager->AddLevel(new TowerOfStickman());
 }
 
 void Game::Cleanup( )
 {
+	delete m_pLevelManager;
+	m_pLevelManager = nullptr;
 }
 
 void Game::Update( float elapsedSec )
@@ -33,12 +40,12 @@ void Game::Update( float elapsedSec )
 	//{
 	//	std::cout << "Left and up arrow keys are down\n";
 	//}
-	
 }
 
 void Game::Draw( ) const
 {
 	ClearBackground( );
+	m_pLevelManager->Draw();
 }
 
 void Game::ProcessKeyDownEvent( const SDL_KeyboardEvent & e )

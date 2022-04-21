@@ -1,5 +1,6 @@
 #pragma once
 
+class LevelManager;
 class Game final
 {
 public:
@@ -13,6 +14,7 @@ public:
 	void Update( float elapsedSec );
 	void Draw( ) const;
 
+	
 	// Event handling
 	void ProcessKeyDownEvent( const SDL_KeyboardEvent& e );
 	void ProcessKeyUpEvent( const SDL_KeyboardEvent& e );
@@ -23,7 +25,8 @@ public:
 private:
 	// DATA MEMBERS
 	const Window m_Window;
-	
+	LevelManager* m_pLevelManager;
+
 	// FUNCTIONS
 	void Initialize( );
 	void Cleanup( );

@@ -11,12 +11,12 @@ public:
 	TowerOfStickman& operator= (TowerOfStickman && t) = delete;
 	~TowerOfStickman();
 
+	void Draw() const override;
 	void Update(float elapsedSec) override;
 	bool HasReachedEnd() override;
 
 private:
 	float m_ElapsedSec;
 	ProjectileManager* m_ProjectileManager;
-	unsigned char m_Sprites[256][16];
 };
 

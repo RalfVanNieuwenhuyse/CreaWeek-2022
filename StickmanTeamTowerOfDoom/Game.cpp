@@ -33,6 +33,7 @@ void Game::Update( float elapsedSec )
 	//{
 	//	std::cout << "Left and up arrow keys are down\n";
 	//}
+	
 }
 
 void Game::Draw( ) const

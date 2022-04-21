@@ -23,7 +23,7 @@ public:
 private:
 	// DATA MEMBERS
 	const Window m_Window;
-
+	
 	// FUNCTIONS
 	void Initialize( );
 	void Cleanup( );

@@ -5,8 +5,7 @@ class Enemy : public Actor
 public:
 	enum class TypeOfEnemy
 	{
-		Undead,
-		Knight,
+		smallEnemy,
 		Boss
 	};
 

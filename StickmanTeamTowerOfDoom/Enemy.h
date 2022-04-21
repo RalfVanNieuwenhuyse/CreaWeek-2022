@@ -22,6 +22,8 @@ public:
 	virtual void Update(float elapsedSec) override;
 	TypeOfEnemy GetTypeOfEnemy();
 
+	virtual OAMEntry sendOAM() override;
+
 protected:
 	virtual void Movement(float elapsedSec);
 

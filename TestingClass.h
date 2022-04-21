@@ -5,4 +5,8 @@ class TestingClass
 	{
 
 	}
+	void RalfTest()
+	{
+
+	}
 };

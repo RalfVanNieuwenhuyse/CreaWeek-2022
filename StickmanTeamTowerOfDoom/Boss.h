@@ -5,8 +5,6 @@
 class Boss: public Enemy
 {
 public:
-
-
 	Boss(Point2f pos);
 	virtual ~Boss();
 	Boss(const Boss& other) = delete;

@@ -2,6 +2,8 @@
 #include "Vector2f.h"
 #include "utils.h"
 
+#include "OAMEntry.h"
+
 class Actor
 {
 public:
@@ -28,6 +30,8 @@ public:
 
 	void takeDamage(int amount);
 	void giveHealth(int amount);
+
+	virtual OAMEntry sendOAM();
 
 protected:
 	Vector2f m_Velocity;

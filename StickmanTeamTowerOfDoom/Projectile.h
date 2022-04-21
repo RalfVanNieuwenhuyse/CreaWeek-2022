@@ -1,5 +1,6 @@
 #pragma once
 #include "Timer.h"
+#include "Vector2f.h"
 class Projectile
 {
 public:
@@ -8,7 +9,7 @@ public:
 		bullet,boomerang,laser
 	};
 
-	explicit Projectile(Type type = Type::bullet, const Point2f& pos = {}, int damage = 10);
+	explicit Projectile(Type type = Type::bullet, const Point2f& pos = {}, int damage = 2);
 	Projectile(Projectile& p) = delete;
 	Projectile& operator=(Projectile& p) = delete;
 	Projectile(Projectile&& p) = delete;
@@ -26,7 +27,9 @@ public:
 	// Changes bottom left of internal rect
 	void SetPosition(const Point2f& pos);
 
+	Type GetType() const;
 	int GetDamage() const;
+	bool ShouldBeDeleted() const;
 protected:
 	Type m_Type;
 	Timer m_TimeAlive;

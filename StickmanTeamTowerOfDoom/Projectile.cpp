@@ -44,7 +44,18 @@ void Projectile::SetPosition(const Point2f& pos)
 	m_Rect.bottom = pos.y;
 }
 
+Projectile::Type Projectile::GetType() const
+{
+	return m_Type;
+}
+
 int Projectile::GetDamage() const
 {
 	return m_Damage;
+}
+
+bool Projectile::ShouldBeDeleted() const
+{
+	if (m_Type == Type::boomerang) return (m_TimeAlive.getCurrentTime() > 32.f);
+	return (m_TimeAlive.getCurrentTime() > 16.f);
 }

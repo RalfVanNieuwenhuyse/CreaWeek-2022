@@ -21,7 +21,8 @@ void Undead::doAttack()
 		break;
 	case SmallEnemy::attacks::melee:
 		//Do melee attack
-		break;
+		m_pPlayer->takeDamage(2)
+;		break;
 	case SmallEnemy::attacks::reflect:
 		//reflect
 		break;

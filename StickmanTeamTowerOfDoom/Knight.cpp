@@ -21,6 +21,7 @@ void Knight::doAttack()
 		break;
 	case SmallEnemy::attacks::melee:
 		//Do melee attack
+		m_pPlayer->takeDamage(2);
 		break;
 	case SmallEnemy::attacks::reflect:
 		//reflect

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Actor.h"
-#include "utils.h"
 
 Actor::Actor(actorType actorType, const float& maxSpeed)
 	: m_Velocity{}
@@ -47,4 +46,9 @@ Rectf Actor::getRect() const
 Actor::actorType Actor::getActorType() const
 {
 	return m_ActorType;
+}
+
+void Actor::takeDamage(int amount)
+{
+	m_Health -= amount;
 }

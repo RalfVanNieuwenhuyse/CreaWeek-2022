@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2f.h"
+#include "utils.h"
 
 class Actor
 {
@@ -24,6 +25,8 @@ public:
 	virtual bool isDead() const;
 	virtual Rectf getRect() const;
 	actorType getActorType() const;
+
+	void takeDamage(int amount);
 
 protected:
 	Vector2f m_Velocity;

@@ -6,6 +6,7 @@ Actor::Actor(actorType actorType)
 	: m_Velocity{}
 	, m_ActorRect{}
 	, m_Health{}
+	, m_MaxHealth{}
 	, m_ActorType{ actorType }
 {
 

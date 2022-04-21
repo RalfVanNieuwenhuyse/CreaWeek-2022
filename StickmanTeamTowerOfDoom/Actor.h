@@ -30,6 +30,7 @@ protected:
 	Rectf m_ActorRect;
 
 	int m_Health;
+	int m_MaxHealth;
 
 private:
 	actorType m_ActorType;
